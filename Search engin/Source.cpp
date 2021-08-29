@@ -4,10 +4,14 @@
 using namespace std;
 
 int main() {
-    int count = 0;
-    string s1 = " documents found";
-    cin >> count;
-    s1 = to_string(count) + s1;
-    cout << s1;
-    return 0;
+    int document_count;
+    cin >> document_count;
+    string message;
+    if (document_count == 0)
+        message = "No documents found"s;
+    else if (document_count == 1)
+        message = "One document found"s;
+    else
+        message = to_string(document_count) + " documents found"s;
+    cout << message << endl;
 }
