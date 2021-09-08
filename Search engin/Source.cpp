@@ -78,9 +78,6 @@ vector<pair<int, int>> FindDocuments(const map<string, set<int>>& word_to_docume
 			document_ids.insert(document_id);
 			++d_to_r[document_id];
 		}
-		// А лучше так:
-		// const auto& local_document_ids = word_to_documents.at(word);
-		// document_ids.insert(local_document_ids.begin(), local_document_ids.end());
 	}
 	set<pair<int, int>> result;
 	for (int id : document_ids)
@@ -109,7 +106,6 @@ int main() {
 	cout << "Search request : "s << endl;
 	const string query = ReadLine();
 	cout << "Search results : "s;
-	//const string query = ReadLine();
 	for (auto [document_id, relevance] : FindDocuments(word_to_documents, stop_words, query)) {
 		cout << "{ document_id = "s << document_id << ", relevance = "s << relevance << " }"s << endl;
 	}
